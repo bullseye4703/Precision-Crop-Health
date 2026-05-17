@@ -34,7 +34,8 @@ export default function Detect() {
     formData.append('file', file);
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/predict`, formData, {
+      const baseUrl = import.meta.env.VITE_API_URL?.replace(/\/+$/, '') || '';
+      const response = await axios.post(`${baseUrl}/predict`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       setResult(response.data);
