@@ -35,5 +35,5 @@ def predict_disease(image_path):
 
     return {
         "disease": disease_name,
-        "confidence": round(confidence * 100, 2)
+        "confidence": round((1 - confidence) * 100, 2)
     }
